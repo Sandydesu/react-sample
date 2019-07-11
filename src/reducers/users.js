@@ -5,6 +5,6 @@ export default function UserReducer(state = [], action) {
             return Object.assign({}, state, { isLoading: true });
         case USERS_INFO_RECEIVED:
             return Object.assign({}, state, { isLoading: false, users: action.payload });
-        default: return state;
+        default: return Object.assign({}, state, { isLoading: true, users: [] });;
     }
 }
