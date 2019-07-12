@@ -6,7 +6,7 @@ export default class RoutingComponent extends Component {
     render() {
         return (
             <Router>
-                <div>
+                <div className="container-fluid">
                     <Route exact path="/" component={HomePageContainer}></Route>
                     <Route path="/users" component={UserContainer}></Route>
                 </div>

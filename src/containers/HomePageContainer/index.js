@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 export class HomePageContainer extends Component {
     render() {
         return (
-            <div>
-                <Link to="/users">UsersList</Link>
+            <div className="row">
+                <button>
+                    <Link to="/users">UsersList</Link>
+                </button>
             </div>
         )
     }
