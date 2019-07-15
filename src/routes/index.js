@@ -5,12 +5,23 @@ import { HomePageContainer } from '../containers/HomePageContainer';
 export default class RoutingComponent extends Component {
     render() {
         return (
-            <Router>
+            <div>
+                <nav className="navbar navbar-inverse">
+                    <div className="container-fluid">
+                        <div className="navbar-header">
+                            <h5 className="navbar-brand">SANDEEP</h5>
+                        </div>
+                    </div>
+                </nav>
                 <div className="container-fluid">
-                    <Route exact path="/" component={HomePageContainer}></Route>
-                    <Route path="/users" component={UserContainer}></Route>
+                    <Router>
+                        <div>
+                            <Route exact path="/" component={HomePageContainer}></Route>
+                            <Route path="/users" component={UserContainer}></Route>
+                        </div>
+                    </Router>
                 </div>
-            </Router>
+            </div>
         )
     }
 }

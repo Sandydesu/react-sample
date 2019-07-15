@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Link } from 'react-router-dom';
 import { getUsers } from '../../actions/users';
 import UsersListContainer from './user-list-container';
-import { UserDetailsContainer } from './user-details-container';
+import UserDetailsContainer from './user-details-container';
 import UserEditContainer from './user-edit-container';
 class UserContainer extends Component {
 
@@ -16,14 +16,21 @@ class UserContainer extends Component {
             this.props.getUsers();
         }
         return (
-            <div className="row">
-                <div classname="col-md-2">
-                    <button><Link to={`${this.props.match.url}/add/new-user`}>Add</Link></button>
+            <div className="row content">
+                <div className="col-sm-2 sidenav">
+                    <h4>Sandeep's Blog</h4>
+                    <Route path={`${this.props.match.url}`} component={UsersListContainer} />
+                    <br />
+                    <div className="input-group">
+                        <button className="btn btn-default" type="button"><Link to={`${this.props.match.url}/add/new-user`}>Add</Link></button>
+                    </div>
                 </div>
-                <Route path={`${this.props.match.url}`} component={UsersListContainer} />
-                <Route path={`${this.props.match.url}/details/:id`} component={UserDetailsContainer} />
-                <Route path={`${this.props.match.url}/add/new-user`} component={UserEditContainer} />
+                <div className="col-sm-10">
+                    <Route path={`${this.props.match.url}/details/:id`} component={UserDetailsContainer} />
+                    <Route path={`${this.props.match.url}/add/new-user`} component={UserEditContainer} />
+                </div>
             </div>
+
         )
     }
 }

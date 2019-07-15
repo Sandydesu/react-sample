@@ -13,4 +13,9 @@ export class UsersService {
             body: JSON.stringify(user)
         }).then((res) => res.json());
     }
+
+    getById = (id) => {
+        return fetch(`http://localhost:4000/users/${id}`)
+            .then((res) => res.json());
+    }
 }

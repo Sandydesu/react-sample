@@ -35,11 +35,22 @@ class UserEditContainer extends Component {
 
     render() {
         return (
-            <div className="col-md-4">
-                <input type="text" name="first_name" value={this.state.first_name} placeholder="First name" onChange={this.updateValue} />
-                <input type="text" name="last_name" value={this.state.last_name} placeholder="Last name" onChange={this.updateValue} />
-                <input type="number" name="age" value={this.state.age} placeholder="Age" onChange={this.updateValue} />
-                <button onClick={this.addNewUser}>Add</button>
+            <div className="container">
+                <form className="form-inline">
+                    <div className="form-group">
+                        <label htmlFor="first_name">First_name:</label>
+                        <input type="text" className="form-control" id="first_name" name="first_name" value={this.state.first_name} placeholder="First name" onChange={this.updateValue} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="last_name">Last_name:</label>
+                        <input type="text" className="form-control" id="last_name" name="last_name" value={this.state.last_name} placeholder="Last name" onChange={this.updateValue} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="age">Age:</label>
+                        <input type="number" className="form-control" id="age" name="age" value={this.state.age} placeholder="Age" onChange={this.updateValue} />
+                    </div>
+                    <button type="submit" className="btn btn-default" onClick={this.addNewUser}>Submit</button>
+                </form>
             </div>
         )
     }

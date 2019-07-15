@@ -6,15 +6,14 @@ class UsersListContainer extends Component {
     render() {
         const { users } = this.props;
         const list = users.map((value, index) => {
-            return (<div key={'user-' + index}>
+            return (<li key={'user-' + index}>
                 <Link to={`${this.props.match.url}/details/${value._id}`}>{value.first_name}</Link>
-            </div>)
+            </li>)
         });
         return (
-            <div className="col-md-4">
+            <ul className="nav nav-pills nav-stacked">
                 {list}
-            </div>
-
+            </ul>
         )
     }
 }

@@ -1,4 +1,4 @@
-import { USERS_INFO_RECEIVED,  USER_ADDED } from '../constants';
+import { USERS_INFO_RECEIVED, USER_ADDED, USER_SELECTED } from '../constants';
 import { UsersService } from '../services/users';
 
 const UsersList = (data) => {
@@ -13,6 +13,14 @@ const UsersAdded = () => {
         type: USER_ADDED
     }
 }
+
+const selectedUser = (data) => {
+    return {
+        type: USER_SELECTED,
+        payload: data
+    }
+}
+
 
 
 
@@ -30,5 +38,14 @@ export const addNewuser = (user) => {
         if (result) {
             dispatch(UsersAdded())
         }
+    }
+}
+
+
+export const getById = (id) => {
+    return async function (dispatch) {
+        const result = await new UsersService().getById(id);
+        dispatch(selectedUser(result));
+
     }
 }
